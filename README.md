@@ -73,3 +73,7 @@ Run tests using:
 ```bash
 ./gradlew test
 ```
+
+## Future Improvements
+
+- [ ] **TODO**: Investigate **Semantic Caching** (Highest Hit Rate). Implementing a vector-based cache (e.g., using Redis or a local vector store) would allow the service to return cached responses for prompts with similar meanings, not just exact string matches, significantly improving response times for common queries.

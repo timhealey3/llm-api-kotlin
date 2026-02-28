@@ -1,5 +1,6 @@
-package org.example.llmktapi
+package org.example.llmktapi.web
 
+import org.example.llmktapi.prompts.Prompts
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping

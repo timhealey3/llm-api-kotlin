@@ -1,4 +1,4 @@
-package org.example.llmktapi
+package org.example.llmktapi.web
 
 import io.github.ollama4j.OllamaAPI
 import io.github.ollama4j.models.response.OllamaResult
