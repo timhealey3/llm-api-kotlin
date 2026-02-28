@@ -1,4 +1,4 @@
-package org.example.llmktapi
+package org.example.llmktapi.prompts
 
 object Prompts {
     val VOICE_PROMPT: String = """

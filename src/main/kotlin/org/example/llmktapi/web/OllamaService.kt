@@ -1,4 +1,4 @@
-package org.example.llmktapi
+package org.example.llmktapi.web
 
 import io.github.ollama4j.OllamaAPI
 import io.github.ollama4j.models.response.OllamaResult
@@ -13,6 +13,6 @@ class OllamaService {
 
     @Throws(HttpTimeoutException::class)
     fun queryLLM(prompt: String): OllamaResult? {
-        return ollamaAPI.generate("gemma3:12b", prompt, null)
+        return ollamaAPI.generate("qwen3:0.6b", prompt, null)
     }
 }
