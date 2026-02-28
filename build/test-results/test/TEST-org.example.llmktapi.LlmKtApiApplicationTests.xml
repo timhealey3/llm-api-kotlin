@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.llmktapi.LlmKtApiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-28T05:16:54.128Z" hostname="tim-inteli714700f" time="0.872">
+  <properties/>
+  <testcase name="contextLoads()" classname="org.example.llmktapi.LlmKtApiApplicationTests" time="0.283"/>
+  <system-out><![CDATA[00:16:54.183 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.llmktapi.LlmKtApiApplicationTests]: LlmKtApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:16:54.220 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.llmktapi.LlmKtApiApplication for test class org.example.llmktapi.LlmKtApiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-02-28T00:16:54.337-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Starting LlmKtApiApplicationTests using Java 17.0.18 with PID 65730 (started by tim in /home/tim/IdeaProjects/llm-api-kotlin)
+2026-02-28T00:16:54.340-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-02-28T00:16:54.713-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Started LlmKtApiApplicationTests in 0.452 seconds (process running for 0.839)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
