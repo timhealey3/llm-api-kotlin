@@ -11,14 +11,6 @@ Key architectural highlights:
 - **Fail-Safe Design**: Includes robust timeout handling (240s) to manage the latency inherent in running large models locally.
 - **Separation of Concerns**: Offloads heavy LLM computation to a dedicated service, keeping the main assistant responsive.
 
-## Features
-
-- **RESTful API**: Simple GET endpoint for prompt submission.
-- **Advanced Model Support**: Currently configured to use `gemma3:12b`.
-- **Intelligent Timeout**: Returns a `408 Request Timeout` if the model exceeds the 240-second generation limit.
-- **Custom System Prompting**: Automatically wraps user prompts in a specialized "Voice Assistant" persona.
-- **Clean Response**: Filters out markdown, backticks, and special characters (#, *, _) for seamless TTS integration.
-
 ## Tech Stack
 
 - **Language**: Kotlin 2.2+
