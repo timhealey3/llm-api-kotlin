@@ -13,6 +13,6 @@ class OllamaService {
 
     @Throws(HttpTimeoutException::class)
     fun queryLLM(prompt: String): OllamaResult? {
-        return ollamaAPI.generate("qwen3:0.6b", prompt, null)
+        return ollamaAPI.generate("gemma3:12b", prompt, null)
     }
 }
