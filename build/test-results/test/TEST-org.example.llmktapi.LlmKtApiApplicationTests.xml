@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.example.llmktapi.LlmKtApiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-28T05:16:54.128Z" hostname="tim-inteli714700f" time="0.872">
+<testsuite name="org.example.llmktapi.LlmKtApiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-03-02T02:45:22.716Z" hostname="Tims-MacBook-Air-2.local" time="1.289">
   <properties/>
-  <testcase name="contextLoads()" classname="org.example.llmktapi.LlmKtApiApplicationTests" time="0.283"/>
-  <system-out><![CDATA[00:16:54.183 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.llmktapi.LlmKtApiApplicationTests]: LlmKtApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:16:54.220 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.llmktapi.LlmKtApiApplication for test class org.example.llmktapi.LlmKtApiApplicationTests
+  <testcase name="contextLoads()" classname="org.example.llmktapi.LlmKtApiApplicationTests" time="0.379"/>
+  <system-out><![CDATA[21:45:22.783 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.llmktapi.LlmKtApiApplicationTests]: LlmKtApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:45:22.825 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.llmktapi.LlmKtApiApplication for test class org.example.llmktapi.LlmKtApiApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,9 +14,15 @@
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-02-28T00:16:54.337-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Starting LlmKtApiApplicationTests using Java 17.0.18 with PID 65730 (started by tim in /home/tim/IdeaProjects/llm-api-kotlin)
-2026-02-28T00:16:54.340-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2026-02-28T00:16:54.713-05:00  INFO 65730 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Started LlmKtApiApplicationTests in 0.452 seconds (process running for 0.839)
+2026-03-01T21:45:22.991-05:00  INFO 9733 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Starting LlmKtApiApplicationTests using Java 21.0.5 with PID 9733 (started by timhealey in /Users/timhealey/IdeaProjects/llm-api-kotlin)
+2026-03-01T21:45:22.993-05:00  INFO 9733 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-03-01T21:45:23.456-05:00  INFO 9733 --- [llm-kt-api] [    Test worker] io.github.ollama4j.OllamaAPI             : Ollama API initialized with host: http://localhost:11434
+2026-03-01T21:45:23.622-05:00  INFO 9733 --- [llm-kt-api] [    Test worker] o.e.llmktapi.LlmKtApiApplicationTests    : Started LlmKtApiApplicationTests in 0.741 seconds (process running for 1.32)
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/timhealey/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.8/f09415827a71be7ed621c7bd02550678f28bc81c/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
 </testsuite>

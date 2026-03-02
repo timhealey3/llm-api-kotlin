@@ -2,9 +2,12 @@ package org.example.llmktapi
 
 import io.github.ollama4j.models.response.OllamaResult
 import org.example.llmktapi.prompts.Prompts
+import org.example.llmktapi.web.CacheService
 import org.example.llmktapi.web.OllamaService
+import org.example.llmktapi.web.dataclass.QueryCacheResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -28,9 +31,13 @@ class OllamaControllerTest {
     @MockitoBean
     private lateinit var ollamaService: OllamaService
 
+    @MockitoBean
+    private lateinit var cacheService: CacheService
+
     @BeforeEach
     fun setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build()
+        `when`(cacheService.queryCache(anyString())).thenReturn(QueryCacheResponse("miss", null))
     }
 
     @Test
@@ -64,6 +71,19 @@ class OllamaControllerTest {
 
         mockMvc.perform(get("/requestLargeOllamaResponse").param("prompt", prompt))
             .andExpect(status().isRequestTimeout)
+    }
+
+    @Test
+    fun `should return cached response when service returns response`() {
+        val prompt = "hello"
+        val expectedResponse = "Hello! I am a cached response."
+        val cacheResponse = QueryCacheResponse("hit", expectedResponse)
+
+        `when`(cacheService.queryCache(prompt)).thenReturn(cacheResponse)
+
+        mockMvc.perform(get("/requestLargeOllamaResponse").param("prompt", prompt))
+            .andExpect(status().isOk)
+            .andExpect(content().string(expectedResponse))
     }
 
     @Test

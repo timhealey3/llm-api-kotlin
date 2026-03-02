@@ -9,13 +9,23 @@ import org.springframework.web.bind.annotation.RestController
 import java.net.http.HttpTimeoutException
 
 @RestController
-class OllamaController(private val ollamaService: OllamaService) {
+class OllamaController(
+    private val ollamaService: OllamaService,
+    private val cacheService: CacheService
+) {
     private val generatingPrompt = Prompts.VOICE_PROMPT
 
     @GetMapping("/requestLargeOllamaResponse")
     fun requestLargeOllamaResponse(@RequestParam prompt: String): ResponseEntity<String> {
         return try {
-            val response = ollamaService.queryLLM(generatingPrompt + prompt)?.response.toString()
+            // see if in cache
+            val cacheResponse = cacheService.queryCache(prompt)
+            var ollamaResponse: String = ""
+            if (cacheResponse.response == null) {
+                ollamaResponse = ollamaService.queryLLM(generatingPrompt + prompt)?.response.toString()
+                cacheService.addToCache(prompt, ollamaResponse, "gemma3:12b")
+            }
+            val response = cacheResponse.response ?: ollamaResponse
             ResponseEntity.ok(response)
         } catch (e: HttpTimeoutException) {
             ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).build()
