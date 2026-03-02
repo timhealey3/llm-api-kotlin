@@ -10,7 +10,7 @@ Key architectural highlights:
 - **Voice-Optimized**: Pre-configured with system prompts that ensure responses are clear, concise, and free of markdown/special characters, making them ideal for Text-to-Speech (TTS) engines.
 - **Fail-Safe Design**: Includes robust timeout handling (240s) to manage the latency inherent in running large models locally.
 - **Separation of Concerns**: Offloads heavy LLM computation to a dedicated service, keeping the main assistant responsive.
-- **Vector Semantic Search Caching**
+- **Vector Semantic Search Caching**: Integrates with a dedicated microservice for Redis-based vector caching, enabling high-speed retrieval of semantically similar queries.
 
 ## Tech Stack
 
@@ -18,7 +18,12 @@ Key architectural highlights:
 - **Framework**: Spring Boot 4.0.3
 - **LLM Library**: [Ollama4j](https://github.com/ollama4j/ollama4j)
 - **Local LLM Engine**: [Ollama](https://ollama.com/)
+- **Caching**: [Local Redis Microservice](https://github.com/timhealey3/llm-cache-redis) Redis Vector Database (via external microservice)
 - **Build Tool**: Gradle
+
+## Caching Architecture
+
+This service utilizes a sidecar microservice for semantic caching. Before querying the local Ollama instance, it checks a Redis-backed vector store:
 
 ## Getting Started
 
@@ -74,23 +79,3 @@ Run tests using:
 ```bash
 ./gradlew test
 ```
-
-## Future Improvements
-
-- [ ] **TODO**: Investigate **Semantic Caching** (Highest Hit Rate). Implementing a vector-based cache (e.g., using Redis or a local vector store) would allow the service to return cached responses for prompts with similar meanings, not just exact string matches, significantly improving response times for common queries.
-    - Store prompt
-    - Store ollama response as JSON
-        - vectorize prompt field
-          - add to db
-        - Workflow
-          - vectorize prompt
-          - search database for vectorized prompt
-            - if it exists return
-            - update time used
-          - if it doesnt exist AND db over 100 size
-            - query LLM 
-              - delete oldest time used row
-                - add new row
-          - if it doesnt exist AND db under 100 size
-            - query LLM
-              - add new row
