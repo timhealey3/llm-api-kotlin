@@ -10,6 +10,7 @@ Key architectural highlights:
 - **Voice-Optimized**: Pre-configured with system prompts that ensure responses are clear, concise, and free of markdown/special characters, making them ideal for Text-to-Speech (TTS) engines.
 - **Fail-Safe Design**: Includes robust timeout handling (240s) to manage the latency inherent in running large models locally.
 - **Separation of Concerns**: Offloads heavy LLM computation to a dedicated service, keeping the main assistant responsive.
+- **Vector Semantic Search Caching**
 
 ## Tech Stack
 
@@ -77,3 +78,19 @@ Run tests using:
 ## Future Improvements
 
 - [ ] **TODO**: Investigate **Semantic Caching** (Highest Hit Rate). Implementing a vector-based cache (e.g., using Redis or a local vector store) would allow the service to return cached responses for prompts with similar meanings, not just exact string matches, significantly improving response times for common queries.
+    - Store prompt
+    - Store ollama response as JSON
+        - vectorize prompt field
+          - add to db
+        - Workflow
+          - vectorize prompt
+          - search database for vectorized prompt
+            - if it exists return
+            - update time used
+          - if it doesnt exist AND db over 100 size
+            - query LLM 
+              - delete oldest time used row
+                - add new row
+          - if it doesnt exist AND db under 100 size
+            - query LLM
+              - add new row
